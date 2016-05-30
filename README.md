@@ -12,7 +12,7 @@ TODO: Explain
 
 ## Implementation Woes
 
-For the interested. It was far more difficult than anticipated to get the Swagger UI localisation working. Here's what I tried:
+It's more difficult than anticipated to get the Swagger UI localisation working. Here's what I've tried:
 
 Approach 1: Write an extension method for SwaggerEnabledConfiguration that creates the route I want - a handler that transforms the output wrapped around the SwaggerUIHandler. Nope - the configuration and .. fields are private, so I can't invoke the configuration callback with the right arguments.
 
