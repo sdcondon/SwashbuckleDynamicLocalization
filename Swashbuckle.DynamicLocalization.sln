@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxDescriptionFilters", "ResxDescriptionFilters\ResxDescriptionFilters.csproj", "{085ED304-E977-4370-9015-47FD0605A5D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicLocalization", "DynamicLocalization\DynamicLocalization.csproj", "{085ED304-E977-4370-9015-47FD0605A5D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResxDescriptionFilters.Tests", "ResxDescriptionFilters.Tests\ResxDescriptionFilters.Tests.csproj", "{B5FA3452-8B0C-4488-87C3-ECF74403134F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicLocalization.Tests", "DynamicLocalization.Tests\DynamicLocalization.Tests.csproj", "{B5FA3452-8B0C-4488-87C3-ECF74403134F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsageExample", "UsageExample\UsageExample.csproj", "{5CDEC0CF-7B45-4117-9B6E-1642392882C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A9125108-FB0F-4B2A-9EB2-EF4082EB1A02}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

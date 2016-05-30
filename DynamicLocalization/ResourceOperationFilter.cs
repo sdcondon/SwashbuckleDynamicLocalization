@@ -1,15 +1,15 @@
-﻿using Swashbuckle.Swagger;
-using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using System.Resources;
-using System.Web.Http.Controllers;
-using System.Web.Http.Description;
-
-namespace ResxDescriptionFilters
+﻿namespace Swashbuckle.DynamicLocalization
 {
+    using Swashbuckle.Swagger;
+    using System.Globalization;
+    using System.Linq;
+    using System.Reflection;
+    using System.Resources;
+    using System.Web.Http.Controllers;
+    using System.Web.Http.Description;
+
     /// <summary>
-    /// Operation filter that retrieves summaries, descriptions from a resource manager.
+    /// Operation filter that retrieves summaries and descriptions from a resource manager using the current UI culture.
     /// </summary>
     public class ResourceOperationFilter : IOperationFilter
     {

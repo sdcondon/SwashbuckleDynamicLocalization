@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ResxDescriptionFilters.UsageExample {
+namespace Swashbuckle.DynamicLocalization.UsageExample {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ResxDescriptionFilters.UsageExample {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ResxDescriptionFilters.UsageExample.ApiDocumentation", typeof(ApiDocumentation).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Swashbuckle.DynamicLocalization.UsageExample.ApiDocumentation", typeof(ApiDocumentation).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

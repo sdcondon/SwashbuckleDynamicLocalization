@@ -1,14 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ResxDescriptionFilters.Tests.TestData;
-using Swashbuckle.Swagger;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ResxDescriptionFilters.Tests
+﻿namespace Swashbuckle.DynamicLocalization.Tests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Swashbuckle.DynamicLocalization.Tests.TestData;
+    using Swashbuckle.Swagger;
+    using System.Collections.Generic;
+
     /// <summary>
     /// Unit tests for the <see cref="ResourceSchemaFilter" /> class.
     /// </summary>

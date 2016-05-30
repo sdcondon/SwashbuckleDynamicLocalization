@@ -1,4 +1,4 @@
-﻿namespace ResxDescriptionFilters.UsageExample
+﻿namespace Swashbuckle.DynamicLocalization.UsageExample
 {
     public class Foo
     {

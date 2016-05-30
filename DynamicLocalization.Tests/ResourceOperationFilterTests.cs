@@ -1,16 +1,15 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Resources;
-using ResxDescriptionFilters.Tests.TestData;
-using Swashbuckle.Swagger;
-using System.Web.Http.Description;
-using System.Web.Http.Controllers;
-using System.Web.Http;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace ResxDescriptionFilters.Tests
+﻿namespace Swashbuckle.DynamicLocalization.Tests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Swashbuckle.DynamicLocalization.Tests.TestData;
+    using Swashbuckle.Swagger;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Http;
+    using System.Web.Http.Controllers;
+    using System.Web.Http.Description;
+
     [TestClass]
     public class ResourceOperationFilterTests
     {

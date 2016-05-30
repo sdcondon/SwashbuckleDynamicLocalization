@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ResxDescriptionFilters.Tests.TestData {
+namespace Swashbuckle.DynamicLocalization.Tests.TestData {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ResxDescriptionFilters.Tests.TestData {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ResxDescriptionFilters.Tests.TestData.Documentation", typeof(Documentation).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Swashbuckle.DynamicLocalization.Tests.TestData.Documentation", typeof(Documentation).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,54 +63,54 @@ namespace ResxDescriptionFilters.Tests.TestData {
         /// <summary>
         ///   Looks up a localized string similar to Description of the getter..
         /// </summary>
-        internal static string ResxDescriptionFilters_Tests_DocumentedController_Get_Description {
+        internal static string Swashbuckle_DynamicLocalization_Tests_DocumentedController_Get_Description {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_Tests_DocumentedController_Get_Description", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_Tests_DocumentedController_Get_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The id of the thing to get.
         /// </summary>
-        internal static string ResxDescriptionFilters_Tests_DocumentedController_Get_id {
+        internal static string Swashbuckle_DynamicLocalization_Tests_DocumentedController_Get_id {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_Tests_DocumentedController_Get_id", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_Tests_DocumentedController_Get_id", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Summary of the getter..
         /// </summary>
-        internal static string ResxDescriptionFilters_Tests_DocumentedController_Get_Summary {
+        internal static string Swashbuckle_DynamicLocalization_Tests_DocumentedController_Get_Summary {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_Tests_DocumentedController_Get_Summary", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_Tests_DocumentedController_Get_Summary", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The test model..
         /// </summary>
-        internal static string ResxDescriptionFilters_Tests_DocumentedModel {
+        internal static string Swashbuckle_DynamicLocalization_Tests_DocumentedModel {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_Tests_DocumentedModel", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_Tests_DocumentedModel", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The first property.
         /// </summary>
-        internal static string ResxDescriptionFilters_Tests_DocumentedModel_FirstProperty {
+        internal static string Swashbuckle_DynamicLocalization_Tests_DocumentedModel_FirstProperty {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_Tests_DocumentedModel_FirstProperty", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_Tests_DocumentedModel_FirstProperty", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The second property.
         /// </summary>
-        internal static string ResxDescriptionFilters_Tests_DocumentedModel_SecondProperty {
+        internal static string Swashbuckle_DynamicLocalization_Tests_DocumentedModel_SecondProperty {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_Tests_DocumentedModel_SecondProperty", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_Tests_DocumentedModel_SecondProperty", resourceCulture);
             }
         }
     }

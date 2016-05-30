@@ -117,22 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ResxDescriptionFilters_Tests_DocumentedController_Get_Description" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_Tests_DocumentedController_Get_Description" xml:space="preserve">
     <value>Description of the getter.</value>
   </data>
-  <data name="ResxDescriptionFilters_Tests_DocumentedController_Get_id" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_Tests_DocumentedController_Get_id" xml:space="preserve">
     <value>The id of the thing to get</value>
   </data>
-  <data name="ResxDescriptionFilters_Tests_DocumentedController_Get_Summary" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_Tests_DocumentedController_Get_Summary" xml:space="preserve">
     <value>Summary of the getter.</value>
   </data>
-  <data name="ResxDescriptionFilters_Tests_DocumentedModel" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_Tests_DocumentedModel" xml:space="preserve">
     <value>The test model.</value>
   </data>
-  <data name="ResxDescriptionFilters_Tests_DocumentedModel_FirstProperty" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_Tests_DocumentedModel_FirstProperty" xml:space="preserve">
     <value>The first property</value>
   </data>
-  <data name="ResxDescriptionFilters_Tests_DocumentedModel_SecondProperty" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_Tests_DocumentedModel_SecondProperty" xml:space="preserve">
     <value>The second property</value>
   </data>
 </root>

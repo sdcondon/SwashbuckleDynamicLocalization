@@ -1,7 +1,7 @@
-﻿using System.Web.Http;
-
-namespace ResxDescriptionFilters.Tests
+﻿namespace Swashbuckle.DynamicLocalization.Tests
 {
+    using System.Web.Http;
+
     class DocumentedController : ApiController
     {
         [HttpGet]

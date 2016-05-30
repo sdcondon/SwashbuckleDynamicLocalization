@@ -1,11 +1,12 @@
-using ResxDescriptionFilters.UsageExample;
 using Swashbuckle.Application;
+using Swashbuckle.DynamicLocalization.UsageExample;
+using System.Reflection;
 using System.Web.Http;
 using WebActivatorEx;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace ResxDescriptionFilters.UsageExample
+namespace Swashbuckle.DynamicLocalization.UsageExample
 {
     public class SwaggerConfig
     {
@@ -13,14 +14,18 @@ namespace ResxDescriptionFilters.UsageExample
         {
             var thisAssembly = typeof(SwaggerConfig).Assembly;
 
-            GlobalConfiguration.Configuration 
+            GlobalConfiguration.Configuration
                 .EnableSwagger(c =>
                 {
                     c.SingleApiVersion("v1", "Swashbuckle.ResxDescriptionFilters.UsageExample");
-                    c.SchemaFilter(() => new ResourceSchemaFilter(ApiDocumentation.ResourceManager));
-                    c.OperationFilter(() => new ResourceOperationFilter(ApiDocumentation.ResourceManager));
+                    //c.AddDynamicLocalisationFilters(ApiDocumentation.ResourceManager);
                 })
-                .EnableSwaggerUi();
+                .EnableSwaggerUi(c =>
+                {
+                    c.CustomAsset("index", Assembly.GetExecutingAssembly(), "ResxDescriptionFilters.UsageExample.SwaggerUI.html");
+                });
+
+            //GlobalConfiguration.Configuration.EnableSwaggerUiLocalisation();
         }
     }
 }
