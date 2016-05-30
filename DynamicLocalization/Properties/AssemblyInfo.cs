@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ResxDescriptionFilters")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Swashbuckle.DynamicLocalization")]
+[assembly: AssemblyDescription("Dynamic localization functionality for Swashbuckle.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ResxDescriptionFilters")]
+[assembly: AssemblyCompany("Simon Condon")]
+[assembly: AssemblyProduct("Swashbuckle.DynamicLocalization")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
