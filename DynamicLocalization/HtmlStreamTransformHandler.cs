@@ -7,9 +7,9 @@
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Delegating handler that applies a transformation to the outgoing content stream.
+    /// Delegating handler that applies a transformation to outgoing HTML content streams.
     /// </summary>
-    public class StreamTransformHandler : DelegatingHandler
+    public class HtmlStreamTransformHandler : DelegatingHandler
     {
         private HttpMessageHandler _innerHandler;
         private Func<Stream, Stream> _transform;
@@ -19,7 +19,7 @@
         /// </summary>
         /// <param name="innerHandler">The inner handler to invoke.</param>
         /// <param name="transform">The transformation to apply to the response content set by the inner handler.</param>
-        public StreamTransformHandler(HttpMessageHandler innerHandler, Func<Stream, Stream> transform)
+        public HtmlStreamTransformHandler(HttpMessageHandler innerHandler, Func<Stream, Stream> transform)
             : base(innerHandler)
         {
             _innerHandler = innerHandler;
@@ -31,8 +31,7 @@
         {
             var response = await base.SendAsync(request, cancellationToken);
 
-            // TODO: At odds with the name of the class. Either change the class name or the transform signature.
-            if (response.Content.Headers.ContentType.MediaType.StartsWith("text"))
+            if (response.Content.Headers.ContentType.MediaType == "text/html")
             {
                 var stream = await response.Content.ReadAsStreamAsync();
                 response.Content = new StreamContent(_transform(stream));

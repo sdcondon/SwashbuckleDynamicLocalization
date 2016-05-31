@@ -17,15 +17,13 @@ namespace Swashbuckle.DynamicLocalization.UsageExample
             GlobalConfiguration.Configuration
                 .EnableSwagger(c =>
                 {
-                    c.SingleApiVersion("v1", "Swashbuckle.ResxDescriptionFilters.UsageExample");
-                    //c.AddDynamicLocalisationFilters(ApiDocumentation.ResourceManager);
+                    c.SingleApiVersion("v1", "Swashbuckle Dynamic Localization Usage Example");
+                    c.AddDynamicLocalisationFilters(ApiDocumentation.ResourceManager);
                 })
-                .EnableSwaggerUi(c =>
+                .EnableLocalizedSwaggerUi(c =>
                 {
-                    c.CustomAsset("index", Assembly.GetExecutingAssembly(), "ResxDescriptionFilters.UsageExample.SwaggerUI.html");
+                    c.CustomAsset("index", Assembly.GetExecutingAssembly(), "Swashbuckle.DynamicLocalization.UsageExample.SwaggerUI.html");
                 });
-
-            //GlobalConfiguration.Configuration.EnableSwaggerUiLocalisation();
         }
     }
 }

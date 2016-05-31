@@ -3,17 +3,21 @@
     using Swashbuckle.Application;
     using System;
     using System.Globalization;
+    using System.Linq;
+    using System.Reflection;
+    using System.Resources;
     using System.Text;
     using System.Web.Http;
     using System.Web.Http.Routing;
 
     public static class SwaggerEnabledConfigurationExtensions
     {
-        private static readonly string DefaultRouteTemplate = "swagger/docs/{apiVersion}";
+        private static readonly string DefaultRouteTemplate = "swagger/ui/{*assetPath}";
+        private static string[] languageScripts;
 
         public static void EnableLocalizedSwaggerUi(this SwaggerEnabledConfiguration configuration, Action<SwaggerUiConfig> configure = null)
         {
-            EnableLocalizedSwaggerUi(configuration, DefaultRouteTemplate, configure);
+            EnableLocalizedSwaggerUi(configuration, DefaultRouteTemplate, null, configure);
         }
 
         public static void EnableLocalizedSwaggerUi(
@@ -21,19 +25,36 @@
             string routeTemplate,
             Action<SwaggerUiConfig> configure = null)
         {
+            EnableLocalizedSwaggerUi(configuration, routeTemplate, null, configure);
+        }
+
+        public static void EnableLocalizedSwaggerUi(
+            this SwaggerEnabledConfiguration configuration,
+            string routeTemplate,
+            ResourceManager resourceManager,
+            Action<SwaggerUiConfig> configure = null)
+        {
+            languageScripts = Assembly.GetAssembly(typeof(SwaggerEnabledConfiguration))
+                .GetManifestResourceNames()
+                .Where(a => a.StartsWith("lang\\"))
+                .Select(a => a.Remove(0, 5))
+                .ToArray();
+
             var config = new SwaggerUiConfig(configuration.DiscoveryPaths, configuration.RootUrlResolver);
-            if (configure != null) configure(config);
+            if (configure != null)
+            {
+                configure(config);
+            }
 
             var innerHandler = new SwaggerUiHandler(config);
-            var handler = new StreamTransformHandler(innerHandler, s => new PlaceholderResolverStream(s, ResolvePlaceholder));
+            var transformHandler = new HtmlStreamTransformHandler(innerHandler, s => new PlaceholderResolverStream(s, a => ResolvePlaceholder(resourceManager, a)));
 
             configuration.HttpConfig.Routes.MapHttpRoute(
                 name: "swagger_localizedui",
                 routeTemplate: routeTemplate,
                 defaults: null,
                 constraints: new { assetPath = @".+" },
-                handler: handler
-            );
+                handler: transformHandler);
 
             if (routeTemplate == DefaultRouteTemplate)
             {
@@ -46,25 +67,52 @@
             }
         }
 
-        private static string ResolvePlaceholder(string key)
+        private static string ResolvePlaceholder(ResourceManager resourceManager, string key)
         {
             if (key == "%(TranslationScripts)")
             {
-                string cultureName = CultureInfo.CurrentUICulture.Name;
-
                 StringBuilder resultBuilder = new StringBuilder();
-                resultBuilder.AppendLine("<script src='lang/translator-js' type='text/javascript'></script>");
-                resultBuilder.AppendLine($"<script src='lang/{cultureName.Substring(0, 2)}-js' type='text/javascript'></script>");
+
+                string cultureName = CultureInfo.CurrentUICulture.Name;
+                                
+                if ((cultureName = GetSwaggerUiLanguageFile(cultureName)) != null)
+                {
+                    resultBuilder.AppendLine("<script src='lang/translator-js' type='text/javascript'></script>");
+                    resultBuilder.AppendLine($"<script src='lang/{cultureName}-js' type='text/javascript'></script>");
+                }
+
                 return resultBuilder.ToString();
             }
             else
             {
-                // Leave unrecognised keys alone
-                return key;
+                // Try resource string lookup to provide a method for localisation of non-SwaggerUI page content - a poor man's rendering engine..
+                // Finally, we leave unrecognised keys alone - slim chance it might not have been intended as a placeholder
+                string resourceStringValue = resourceManager?.GetString(key.Substring(2, key.Length - 3));
+                if (resourceStringValue != null)
+                {
+                    return resourceStringValue;
+                }
+                else
+                {
+                    return key;
+                }
             }
+        }
 
-            //// TODO: Also perhaps try resource string lookup to provide a method for localisation of non-SwaggerUI page content?
-            //// A poor man's rendering engine..
+        private static string GetSwaggerUiLanguageFile(string cultureName)
+        {
+            if (languageScripts.Contains(cultureName + ".js"))
+            {
+                return cultureName;
+            }
+            else if (languageScripts.Contains(cultureName.Substring(0, 2) + ".js"))
+            {
+                return cultureName.Substring(0, 2);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

@@ -117,25 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ResxDescriptionFilters_UsageExample_FooController_Get_Description" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_Description" xml:space="preserve">
     <value>Gets a value.</value>
   </data>
-  <data name="ResxDescriptionFilters_UsageExample_FooController_Get_id" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_id" xml:space="preserve">
     <value>The id of the value to get.</value>
   </data>
-  <data name="ResxDescriptionFilters_UsageExample_FooController_Get_Summary" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_Summary" xml:space="preserve">
     <value>Summary of the value getter.</value>
   </data>
-  <data name="ResxDescriptionFilters_UsageExample_FooController_Post_Summary" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_UsageExample_FooController_Post_Summary" xml:space="preserve">
     <value>Posts a value.</value>
   </data>
-  <data name="ResxDescriptionFilters_UsageExample_Foo" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_UsageExample_Foo" xml:space="preserve">
     <value>The foo</value>
   </data>
-  <data name="ResxDescriptionFilters_UsageExample_Foo_Thing" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_UsageExample_Foo_Thing" xml:space="preserve">
     <value>The foo's thing</value>
   </data>
-  <data name="ResxDescriptionFilters_UsageExample_Foo_OtherThing" xml:space="preserve">
+  <data name="Swashbuckle_DynamicLocalization_UsageExample_Foo_OtherThing" xml:space="preserve">
     <value>Foo's other thing</value>
   </data>
 </root>

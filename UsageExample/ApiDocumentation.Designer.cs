@@ -63,63 +63,63 @@ namespace Swashbuckle.DynamicLocalization.UsageExample {
         /// <summary>
         ///   Looks up a localized string similar to The foo.
         /// </summary>
-        public static string ResxDescriptionFilters_UsageExample_Foo {
+        public static string Swashbuckle_DynamicLocalization_UsageExample_Foo {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_UsageExample_Foo", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_Foo", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Foo&apos;s other thing.
         /// </summary>
-        public static string ResxDescriptionFilters_UsageExample_Foo_OtherThing {
+        public static string Swashbuckle_DynamicLocalization_UsageExample_Foo_OtherThing {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_UsageExample_Foo_OtherThing", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_Foo_OtherThing", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The foo&apos;s thing.
         /// </summary>
-        public static string ResxDescriptionFilters_UsageExample_Foo_Thing {
+        public static string Swashbuckle_DynamicLocalization_UsageExample_Foo_Thing {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_UsageExample_Foo_Thing", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_Foo_Thing", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Gets a value..
         /// </summary>
-        public static string ResxDescriptionFilters_UsageExample_FooController_Get_Description {
+        public static string Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_Description {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_UsageExample_FooController_Get_Description", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The id of the value to get..
         /// </summary>
-        public static string ResxDescriptionFilters_UsageExample_FooController_Get_id {
+        public static string Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_id {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_UsageExample_FooController_Get_id", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_id", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Summary of the value getter..
         /// </summary>
-        public static string ResxDescriptionFilters_UsageExample_FooController_Get_Summary {
+        public static string Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_Summary {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_UsageExample_FooController_Get_Summary", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_Summary", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Posts a value..
         /// </summary>
-        public static string ResxDescriptionFilters_UsageExample_FooController_Post_Summary {
+        public static string Swashbuckle_DynamicLocalization_UsageExample_FooController_Post_Summary {
             get {
-                return ResourceManager.GetString("ResxDescriptionFilters_UsageExample_FooController_Post_Summary", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_FooController_Post_Summary", resourceCulture);
             }
         }
     }

@@ -52,11 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PlaceholderResolverStream.cs" />
-    <None Include="SwaggerEnabledConfigurationExtensions.cs" />
+    <Compile Include="SwaggerEnabledConfigurationExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceOperationFilter.cs" />
     <Compile Include="ResourceSchemaFilter.cs" />
-    <Compile Include="StreamTransformHandler.cs" />
+    <Compile Include="HtmlStreamTransformHandler.cs" />
     <Compile Include="SwaggerDocsConfigExtensions.cs" />
     <None Include="app.config" />
   </ItemGroup>

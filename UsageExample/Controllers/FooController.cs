@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-namespace Swashbuckle.DynamicLocalization.UsageExample
+﻿namespace Swashbuckle.DynamicLocalization.UsageExample
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Http;
     using System.Web.Http.Description;
 
     [RoutePrefix("foos")]

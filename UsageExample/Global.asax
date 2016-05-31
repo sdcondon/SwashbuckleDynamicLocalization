@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="ResxDescriptionFilters.UsageExample.WebApiApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Swashbuckle.DynamicLocalization.UsageExample.WebApiApplication" Language="C#" %>
