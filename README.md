@@ -1,24 +1,10 @@
 # Swashbuckle.DynamicLocalization
 
-Two distinct pieces of functionality, extending on Swashbuckle:
+This package exposes two distinct pieces of functionality, extending on Swashbuckle:
  * Swashbuckle filters that grab descriptions from resource strings, using the CurrentUICulture.
  * Logic to expose the localisation functionality that Swagger UI includes, again using CurrentUICulture.
 
-## Usage - Filters
-
-This package includes two Swashbuckle filter classes - ResourceOperationFilter and ResourceSchemaFilter. These retrieve operation and schema descriptions from a provided ResourceManager, using the CurrentUICulture. They can either be added separately in the usual way, or you can use the AddDynamicLocalisationFilters extension method for SwaggerDocsConfig to attach them both at once.
-
-Resource look-up is convention based the keys are as follows:
- 
- * For an operation description: {namespace-qualified type name}.{method name}.Description
- * For an operation summary: {namespace-qualified type name}.{method name}.Summary
- * For an operation parameter description: {namespace-qualified type name}.{method name}.{parameter name}
- * For a model description: {namespace-qualified type name}
- * For a model property description: {namespace-qualified type name}.{property name}
-
-(TODO: Only require as much of the namespace as needed to be unique)
-
-It's up to you how you set CurrentUICulture. One way is with a handler for the ASP.NET BeginRequest event that sets it based on the first priority language header - as follows:
+NB: It's up to you how you set CurrentUICulture - the package won't do it for you. When using ASP.NET, one way is with a handler for the BeginRequest event that sets it based on the first priority language header - as follows:
 
     protected void Application_BeginRequest(Object sender, EventArgs e)
     {
@@ -30,7 +16,21 @@ It's up to you how you set CurrentUICulture. One way is with a handler for the A
         }
     }
 
+## Usage - Filters
+
+This package includes two Swashbuckle filter classes - ResourceOperationFilter and ResourceSchemaFilter. These retrieve operation and schema descriptions from a provided ResourceManager, using the CurrentUICulture. They can either be added separately in the usual way, or you can use the AddDynamicLocalisationFilters extension method for SwaggerDocsConfig to attach them both at once.
+
+Resource string look-up is convention based. The keys are as follows:
+ 
+ * For an operation description: {namespace-qualified type name}.{method name}.Description
+ * For an operation summary: {namespace-qualified type name}.{method name}.Summary
+ * For an operation parameter description: {namespace-qualified type name}.{method name}.{parameter name}
+ * For a model description: {namespace-qualified type name}
+ * For a model property description: {namespace-qualified type name}.{property name}
+
 See the usage example project for an example of this.
+
+(TODO: Only require as much of the namespace as needed to be unique)
 
 ## Usage - Swagger UI localisation
 
@@ -39,9 +39,10 @@ Instead of EnableSwaggerUi, you can invoke the EnabledLocalizedSwaggerUI extensi
  * A placeholder of %(TranslationScripts) in your index file will be resolved to script tags for the appropriate Swagger UI language scripts given the CurrentUICulture (as long as it is one for which Swagger UI language scripts exist - if not, no script tags will be added). Note that this package _does not_ provide an index file with this placeholder already in place. That's a TODO..
  * _If_ you provide a ResourceManager argument to EnableLocalizedSwaggerUi, a lookup (again using the CurrentUICulture) will be performed for any other placeholders (%(...)) in your index file in case there's anything else you want to localise.
 
-## Feature List
+## Features and Roadmap
 
- [ ] Submit a very polite pull request for Swashbuckle (once I figure out how to do that..) so that this package can depend on Swashbuckle.Core rather than including its own hideous mutation thereof..
+ [x] Basic implementation..
+ [ ] Submit a very polite pull request for Swashbuckle (once I figure out how to do that..) so that this package can depend on Swashbuckle.Core rather than including its own hideous mutation thereof.
  [ ] Documentation Filter (and might need some more SwaggerDocsConfig extensions) for localising other swagger doc entries - the title, for example.
  [ ] For the resource lookups in the operation and schema filters, only require as much of the namespace as is necessary to be unique.
  [ ] When EnableLocalizedSwaggerUi is invoked, register an index HTML file that's got the %(TranslationScripts) placeholder in
