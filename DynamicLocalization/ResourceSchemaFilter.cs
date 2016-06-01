@@ -27,7 +27,7 @@
         public void Apply(Schema model, SchemaRegistry schemaRegistry, Type type)
         {
             // TODO: Try just the type name first - use only as much of the full name as is needed?
-            string modelKey = type.FullName.Replace('.', '_');
+            string modelKey = type.FullName;
             model.description = _resourceManager.GetString(modelKey, CultureInfo.CurrentUICulture);
 
             foreach (var modelProperty in model.properties)
@@ -35,7 +35,7 @@
                 var propertyInfo = type.GetProperty(modelProperty.Key);
                 if (propertyInfo != null)
                 {
-                    string resourceName = modelKey + "_" + propertyInfo.Name;
+                    string resourceName = modelKey + "." + propertyInfo.Name;
                     modelProperty.Value.description = _resourceManager.GetString(resourceName, CultureInfo.CurrentUICulture);
                 }
             }

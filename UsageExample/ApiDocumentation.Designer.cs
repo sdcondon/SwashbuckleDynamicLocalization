@@ -65,7 +65,7 @@ namespace Swashbuckle.DynamicLocalization.UsageExample {
         /// </summary>
         public static string Swashbuckle_DynamicLocalization_UsageExample_Foo {
             get {
-                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_Foo", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle.DynamicLocalization.UsageExample.Foo", resourceCulture);
             }
         }
         
@@ -74,7 +74,7 @@ namespace Swashbuckle.DynamicLocalization.UsageExample {
         /// </summary>
         public static string Swashbuckle_DynamicLocalization_UsageExample_Foo_OtherThing {
             get {
-                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_Foo_OtherThing", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle.DynamicLocalization.UsageExample.Foo.OtherThing", resourceCulture);
             }
         }
         
@@ -83,7 +83,7 @@ namespace Swashbuckle.DynamicLocalization.UsageExample {
         /// </summary>
         public static string Swashbuckle_DynamicLocalization_UsageExample_Foo_Thing {
             get {
-                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_Foo_Thing", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle.DynamicLocalization.UsageExample.Foo.Thing", resourceCulture);
             }
         }
         
@@ -92,7 +92,7 @@ namespace Swashbuckle.DynamicLocalization.UsageExample {
         /// </summary>
         public static string Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_Description {
             get {
-                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_Description", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle.DynamicLocalization.UsageExample.FooController.Get.Description", resourceCulture);
             }
         }
         
@@ -101,7 +101,7 @@ namespace Swashbuckle.DynamicLocalization.UsageExample {
         /// </summary>
         public static string Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_id {
             get {
-                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_id", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle.DynamicLocalization.UsageExample.FooController.Get.id", resourceCulture);
             }
         }
         
@@ -110,7 +110,7 @@ namespace Swashbuckle.DynamicLocalization.UsageExample {
         /// </summary>
         public static string Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_Summary {
             get {
-                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_FooController_Get_Summary", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle.DynamicLocalization.UsageExample.FooController.Get.Summary", resourceCulture);
             }
         }
         
@@ -119,7 +119,7 @@ namespace Swashbuckle.DynamicLocalization.UsageExample {
         /// </summary>
         public static string Swashbuckle_DynamicLocalization_UsageExample_FooController_Post_Summary {
             get {
-                return ResourceManager.GetString("Swashbuckle_DynamicLocalization_UsageExample_FooController_Post_Summary", resourceCulture);
+                return ResourceManager.GetString("Swashbuckle.DynamicLocalization.UsageExample.FooController.Post.Summary", resourceCulture);
             }
         }
     }

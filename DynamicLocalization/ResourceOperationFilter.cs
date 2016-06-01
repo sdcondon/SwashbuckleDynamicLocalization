@@ -35,7 +35,7 @@
 
             // TODO: Try just the type name first - use only as much of the full name as is needed?
             MethodInfo methodInfo = reflectedActionDescriptor.MethodInfo;
-            string methodKey = methodInfo.DeclaringType.FullName.Replace('.', '_') + "_" + methodInfo.Name;
+            string methodKey = methodInfo.DeclaringType.FullName + "." + methodInfo.Name;
 
             ApplyOperationComments(operation, methodKey);
             ApplyParamComments(operation, methodInfo, methodKey);
@@ -44,13 +44,13 @@
 
         private void ApplyOperationComments(Operation operation, string methodKey)
         {
-            string summary = _resourceManager.GetString(methodKey + "_Summary", CultureInfo.CurrentUICulture);
+            string summary = _resourceManager.GetString(methodKey + ".Summary", CultureInfo.CurrentUICulture);
             if (summary != null)
             {
                 operation.summary = summary;
             }
 
-            string description = _resourceManager.GetString(methodKey + "_Description", CultureInfo.CurrentUICulture);
+            string description = _resourceManager.GetString(methodKey + ".Description", CultureInfo.CurrentUICulture);
             if (description != null)
             {
                 operation.description = description;
@@ -69,7 +69,7 @@
                 var parameter = operation.parameters.SingleOrDefault(param => param.name == parameterInfo.Name);
                 if (parameter != null)
                 {
-                    parameter.description = _resourceManager.GetString(methodKey + "_" + parameterInfo.Name, CultureInfo.CurrentUICulture);
+                    parameter.description = _resourceManager.GetString(methodKey + "." + parameterInfo.Name, CultureInfo.CurrentUICulture);
                 }
             }
         }
