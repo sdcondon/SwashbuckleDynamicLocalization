@@ -36,17 +36,18 @@ See the usage example project for an example of this.
 
 Instead of EnableSwaggerUi, you can invoke the EnabledLocalizedSwaggerUI extension method provided by this package. Doing so will enable Swagger UI just as EnableSwaggerUi does, and have two additional effects:
 
- * A placeholder of %(TranslationScripts) in your index file will be resolved to script tags for the appropriate Swagger UI language scripts given the CurrentUICulture (as long as it is one for which Swagger UI language scripts exist - if not, no script tags will be added). Note that this package _does not_ provide an index file with this placeholder already in place. That's a TODO..
+ * A placeholder of %(TranslationScripts) in your index file will be resolved to script tags for the appropriate Swagger UI language scripts given the CurrentUICulture (as long as it is one for which Swagger UI language scripts exist - if not, no script tags will be added). Note that this package _does not_ provide an index file with this placeholder already in place. That's a TODO.
  * _If_ you provide a ResourceManager argument to EnableLocalizedSwaggerUi, a lookup (again using the CurrentUICulture) will be performed for any other placeholders (%(...)) in your index file in case there's anything else you want to localise.
 
 ## Features and Roadmap
 
-- [x] Basic implementation..
+- [x] Basic implementation.
 - [ ] Submit a very polite pull request for Swashbuckle (once I figure out how to do that..) so that this package can depend on Swashbuckle.Core rather than including its own hideous mutation thereof.
 - [ ] Documentation Filter (and might need some more SwaggerDocsConfig extensions) for localising other swagger doc entries - the title, for example.
 - [ ] For the resource lookups in the operation and schema filters, only require as much of the namespace as is necessary to be unique.
 - [ ] When EnableLocalizedSwaggerUi is invoked, register an index HTML file that's got the %(TranslationScripts) placeholder in - ensuring of course that it can be overridden.
-- [ ] Examine whether creating something equivalent for Ahoy would be useful..
+- [ ] Tidy up UsageExample - it's got a bunch of packages it doesn't need.
+- [ ] Examine whether creating something equivalent for Ahoy would be useful.
 
 ## Implementation Woes
 
