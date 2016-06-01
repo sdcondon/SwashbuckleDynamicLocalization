@@ -18,7 +18,7 @@ NB: It's up to you how you set CurrentUICulture - the package won't do it for yo
 
 ## Usage - Filters
 
-This package includes two Swashbuckle filter classes - ResourceOperationFilter and ResourceSchemaFilter. These retrieve operation and schema descriptions from a provided ResourceManager, using the CurrentUICulture. They can either be added separately in the usual way, or you can use the AddDynamicLocalisationFilters extension method for SwaggerDocsConfig to attach them both at once.
+This package includes two Swashbuckle filter classes - ResourceOperationFilter and ResourceSchemaFilter. These retrieve operation and schema descriptions from a provided ResourceManager, using the CurrentUICulture. They can either be added separately in the usual way, or you can use the AddDynamicLocalizationFilters extension method for SwaggerDocsConfig to attach them both at once.
 
 Resource string look-up is convention based. The keys are as follows:
  
@@ -37,7 +37,7 @@ See the usage example project for an example of this.
 Instead of EnableSwaggerUi, you can invoke the EnabledLocalizedSwaggerUI extension method provided by this package. Doing so will enable Swagger UI just as EnableSwaggerUi does, and have two additional effects:
 
  * A placeholder of %(TranslationScripts) in your index file will be resolved to script tags for the appropriate Swagger UI language scripts given the CurrentUICulture (as long as it is one for which Swagger UI language scripts exist - if not, no script tags will be added). Note that this package _does not_ provide an index file with this placeholder already in place. That's a TODO.
- * _If_ you provide a ResourceManager argument to EnableLocalizedSwaggerUi, a lookup (again using the CurrentUICulture) will be performed for any other placeholders (%(...)) in your index file in case there's anything else you want to localise.
+ * If you provide a ResourceManager argument to EnableLocalizedSwaggerUi, a lookup (again using the CurrentUICulture) will be performed for any other placeholders (%(...)) in your index file in case there's anything else you want to localise.
 
 ## Features and Roadmap
 

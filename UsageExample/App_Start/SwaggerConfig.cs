@@ -18,7 +18,7 @@ namespace Swashbuckle.DynamicLocalization.UsageExample
                 .EnableSwagger(c =>
                 {
                     c.SingleApiVersion("v1", "Swashbuckle Dynamic Localization Usage Example");
-                    c.AddDynamicLocalisationFilters(ApiDocumentation.ResourceManager);
+                    c.AddDynamicLocalizationFilters(ApiDocumentation.ResourceManager);
                 })
                 .EnableLocalizedSwaggerUi(c =>
                 {

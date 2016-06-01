@@ -8,7 +8,7 @@
     /// </summary>
     public static class SwaggerDocsConfigExtensions
     {
-        public static void AddDynamicLocalisationFilters(this SwaggerDocsConfig config, ResourceManager resourceManager)
+        public static void AddDynamicLocalizationFilters(this SwaggerDocsConfig config, ResourceManager resourceManager)
         {
             config.SchemaFilter(() => new ResourceSchemaFilter(resourceManager));
             config.OperationFilter(() => new ResourceOperationFilter(resourceManager));
