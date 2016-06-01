@@ -41,12 +41,12 @@ Instead of EnableSwaggerUi, you can invoke the EnabledLocalizedSwaggerUI extensi
 
 ## Features and Roadmap
 
- [x] Basic implementation..
- [ ] Submit a very polite pull request for Swashbuckle (once I figure out how to do that..) so that this package can depend on Swashbuckle.Core rather than including its own hideous mutation thereof.
- [ ] Documentation Filter (and might need some more SwaggerDocsConfig extensions) for localising other swagger doc entries - the title, for example.
- [ ] For the resource lookups in the operation and schema filters, only require as much of the namespace as is necessary to be unique.
- [ ] When EnableLocalizedSwaggerUi is invoked, register an index HTML file that's got the %(TranslationScripts) placeholder in
- [ ] Examine whether creating something equivalent for Ahoy would be useful..
+- [x] Basic implementation..
+- [ ] Submit a very polite pull request for Swashbuckle (once I figure out how to do that..) so that this package can depend on Swashbuckle.Core rather than including its own hideous mutation thereof.
+- [ ] Documentation Filter (and might need some more SwaggerDocsConfig extensions) for localising other swagger doc entries - the title, for example.
+- [ ] For the resource lookups in the operation and schema filters, only require as much of the namespace as is necessary to be unique.
+- [ ] When EnableLocalizedSwaggerUi is invoked, register an index HTML file that's got the %(TranslationScripts) placeholder in - ensuring of course that it can be overridden.
+- [ ] Examine whether creating something equivalent for Ahoy would be useful..
 
 ## Implementation Woes
 
