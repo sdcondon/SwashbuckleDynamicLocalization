@@ -47,14 +47,14 @@ Instead of EnableSwaggerUi, you can invoke the EnabledLocalizedSwaggerUI extensi
 - [ ] For the resource lookups in the operation and schema filters, only require as much of the namespace as is necessary to be unique.
 - [ ] When EnableLocalizedSwaggerUi is invoked, register an index HTML file that's got the %(TranslationScripts) placeholder in - ensuring of course that it can be overridden.
 - [ ] Tidy up UsageExample - it's got a bunch of packages it doesn't need.
-- [ ] Examine whether creating something equivalent for Ahoy would be useful.
+- [ ] Look at whether creating something equivalent for Ahoy would be easy and/or useful.
 
-## Implementation Woes
+## Why This Package Doesn't Just Depend On Swashbuckle
 
-It's more difficult than anticipated to get the Swagger UI localisation working. Here's what I've tried:
+Swashbuckle (and Web API) as it stands don't make it easy to extend the Swagger UI functionality exposed by Swashbuckle. Here's what I tried: 
 
-Approach 1: Write an extension method for SwaggerEnabledConfiguration that creates the route I want - a handler that transforms the output wrapped around the SwaggerUIHandler. Nope - the configuration and .. fields are private, so I can't invoke the configuration callback with the right arguments.
+Approach 1: Write an extension method for SwaggerEnabledConfiguration that creates the route I want - a handler that transforms the output wrapped around the SwaggerUIHandler. Nope - it's got no public properties, so I can't invoke the configuration callback with the right arguments.
 
 Approach 2: Leave Swashbuckle's route creation untouched, and instead create another HTTP configuration extension method that modifies things - removes the Swagger UI route, replacing it with my version using the delegating handler. Nope - despite implementing interfaces that would suggest otherwise, routes can't be deleted. Okay so we leave it alone but insert one.. Also nope. Interestingly though, the routes _can_ be cleared. I'd be interested to hear the justification for this behaviour..
 
-Approach 3: Give up.. For now. Ponder a Swashbuckle tweak and pull request so that approach 1 is workable..
+Approach 3: Give up and, for now, fork Swashbuckle and use that.
