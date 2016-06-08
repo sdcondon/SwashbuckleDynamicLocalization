@@ -76,28 +76,7 @@
 
         private static void ApplyResponseComments(Operation operation, MethodInfo methodInfo, string methodKey)
         {
-            /*
-            var responseNodes = methodNode.Select(ResponseTag);
-
-            if (responseNodes.Count > 0)
-            {
-                var successResponse = operation.responses.First().Value;
-                operation.responses.Clear();
-
-                while (responseNodes.MoveNext())
-                {
-                    var statusCode = responseNodes.Current.GetAttribute("code", "");
-                    var description = responseNodes.Current.ExtractContent();
-
-                    var response = new Response
-                    {
-                        description = description,
-                        schema = statusCode.StartsWith("2") ? successResponse.schema : null
-                    };
-                    operation.responses[statusCode] = response;
-                }
-            }
-            */
+            //// TODO!
         }
     }
 }

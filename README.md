@@ -55,6 +55,7 @@ Instead of EnableSwaggerUi, you can invoke the EnableLocalizedSwaggerUI extensio
 
 - [x] Basic implementation.
 - [ ] Submit a very polite pull request for Swashbuckle so that it can actually work.
+- [ ] Add logic for response descriptions to ResourceOperationFilter.
 - [ ] Documentation Filter (and might need some more SwaggerDocsConfig extensions) for localising other swagger doc entries - the title, for example.
 - [ ] For the resource lookups in the operation and schema filters, only require as much of the namespace as is necessary to be unique.
 - [ ] When EnableLocalizedSwaggerUi is invoked, register an index HTML file that's got the %(TranslationScripts) placeholder in - ensuring of course that it can be overridden.
