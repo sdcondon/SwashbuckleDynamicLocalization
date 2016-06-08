@@ -1,5 +1,7 @@
 # Swashbuckle.DynamicLocalization
 
+## Overview - What It's Supposed To Do
+
 This package exposes two distinct pieces of functionality, extending on Swashbuckle:
  * Swashbuckle filters that grab descriptions from resource strings, using the CurrentUICulture.
  * Logic to expose the localisation functionality that Swagger UI includes, again using CurrentUICulture.
@@ -15,6 +17,16 @@ NB: It's up to you how you set CurrentUICulture - the package won't do it for yo
             CultureInfo.CurrentUICulture = new CultureInfo(userLanguages[0]);
         }
     }
+
+## Why It Doesn't Quite Work Yet
+
+Swashbuckle (and Web API) as it stands don't make it easy to extend the Swagger UI functionality exposed by Swashbuckle. Here's what I tried: 
+
+Approach 1: Write an extension method for SwaggerEnabledConfiguration that creates the route I want - a handler that transforms the output wrapped around the SwaggerUIHandler. Nope - it's got no public properties, so I can't invoke the configuration callback with the right arguments.
+
+Approach 2: Leave Swashbuckle's route creation untouched, and instead create another HTTP configuration extension method that modifies things - removes the Swagger UI route, replacing it with my version using the delegating handler. Nope - despite implementing interfaces that would suggest otherwise, routes can't be deleted. Okay so we leave it alone but insert one.. Also nope. Interestingly though, the routes _can_ be cleared. I'd be interested to hear the justification for this behaviour..
+
+Approach 3: Give up and, for now - submit a very polite pull request..
 
 ## Usage - Filters
 
@@ -34,7 +46,7 @@ See the usage example project for an example of this.
 
 ## Usage - Swagger UI localisation
 
-Instead of EnableSwaggerUi, you can invoke the EnabledLocalizedSwaggerUI extension method provided by this package. Doing so will enable Swagger UI just as EnableSwaggerUi does, and have two additional effects:
+Instead of EnableSwaggerUi, you can invoke the EnableLocalizedSwaggerUI extension method provided by this package. Doing so will enable Swagger UI just as EnableSwaggerUi does, and have two additional effects:
 
  * A placeholder of %(TranslationScripts) in your index file will be resolved to script tags for the appropriate Swagger UI language scripts given the CurrentUICulture (as long as it is one for which Swagger UI language scripts exist - if not, no script tags will be added). Note that this package _does not_ provide an index file with this placeholder already in place. That's a TODO.
  * If you provide a ResourceManager argument to EnableLocalizedSwaggerUi, a lookup (again using the CurrentUICulture) will be performed for any other placeholders (%(...)) in your index file in case there's anything else you want to localise.
@@ -42,19 +54,8 @@ Instead of EnableSwaggerUi, you can invoke the EnabledLocalizedSwaggerUI extensi
 ## Features and Roadmap
 
 - [x] Basic implementation.
-- [ ] Submit a very polite pull request for Swashbuckle (once I figure out how to do that..) so that this package can depend on Swashbuckle.Core rather than including its own hideous mutation thereof.
+- [ ] Submit a very polite pull request for Swashbuckle so that it can actually work.
 - [ ] Documentation Filter (and might need some more SwaggerDocsConfig extensions) for localising other swagger doc entries - the title, for example.
 - [ ] For the resource lookups in the operation and schema filters, only require as much of the namespace as is necessary to be unique.
 - [ ] When EnableLocalizedSwaggerUi is invoked, register an index HTML file that's got the %(TranslationScripts) placeholder in - ensuring of course that it can be overridden.
 - [ ] Tidy up UsageExample - it's got a bunch of packages it doesn't need.
-- [ ] Look at whether creating something equivalent for Ahoy would be easy and/or useful.
-
-## Why This Package Doesn't Just Depend On Swashbuckle
-
-Swashbuckle (and Web API) as it stands don't make it easy to extend the Swagger UI functionality exposed by Swashbuckle. Here's what I tried: 
-
-Approach 1: Write an extension method for SwaggerEnabledConfiguration that creates the route I want - a handler that transforms the output wrapped around the SwaggerUIHandler. Nope - it's got no public properties, so I can't invoke the configuration callback with the right arguments.
-
-Approach 2: Leave Swashbuckle's route creation untouched, and instead create another HTTP configuration extension method that modifies things - removes the Swagger UI route, replacing it with my version using the delegating handler. Nope - despite implementing interfaces that would suggest otherwise, routes can't be deleted. Okay so we leave it alone but insert one.. Also nope. Interestingly though, the routes _can_ be cleared. I'd be interested to hear the justification for this behaviour..
-
-Approach 3: Give up and, for now, fork Swashbuckle and use that.
