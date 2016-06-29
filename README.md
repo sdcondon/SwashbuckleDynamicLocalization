@@ -18,7 +18,7 @@ NB: It's up to you how you set CurrentUICulture - the package won't do it for yo
         }
     }
 
-## Why It Doesn't Quite Work Yet
+## Implementation Awkwardness
 
 Swashbuckle (and Web API) as it stands don't make it easy to extend the Swagger UI functionality exposed by Swashbuckle. Here's what I tried: 
 
@@ -26,7 +26,7 @@ Approach 1: Write an extension method for SwaggerEnabledConfiguration that creat
 
 Approach 2: Leave Swashbuckle's route creation untouched, and instead create another HTTP configuration extension method that modifies things - removes the Swagger UI route, replacing it with my version using the delegating handler. Nope - despite implementing interfaces that would suggest otherwise, routes can't be deleted. Okay so we leave it alone but insert one.. Also nope. Interestingly though, the routes _can_ be cleared. I'd be interested to hear the justification for this behaviour..
 
-Approach 3: Realise that even if I manage to get something working, it's going to be a horrible hack, and that I should instead submit a pull request so that approach 1 can work.
+Approach 3: Hack approach 1 using reflection to access the fields, think about submitting a pull request for Swashbuckle.
 
 ## Usage - Filters
 
