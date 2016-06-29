@@ -2,8 +2,10 @@
 {
     using Swashbuckle.Application;
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using System.Net.Http;
     using System.Reflection;
     using System.Resources;
     using System.Text;
@@ -40,16 +42,18 @@
                 .Select(a => a.Remove(0, 5))
                 .ToArray();
 
-            var config = new SwaggerUiConfig(configuration.DiscoveryPaths, configuration.RootUrlResolver);
-            if (configure != null)
-            {
-                configure(config);
-            }
+            // Dirty, fragile, needless CAS-requiring hack - really would like these to be public properties: 
+            var httpConfig = (HttpConfiguration)typeof(SwaggerEnabledConfiguration).GetField("_httpConfig", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(configuration);
+            var discoveryPaths = (IEnumerable<string>)typeof(SwaggerEnabledConfiguration).GetField("_discoveryPaths", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(configuration);
+            var rootUrlResolver = (Func<HttpRequestMessage, string>)typeof(SwaggerEnabledConfiguration).GetField("_rootUrlResolver", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(configuration);
+
+            var config = new SwaggerUiConfig(discoveryPaths, rootUrlResolver);
+            configure?.Invoke(config);
 
             var innerHandler = new SwaggerUiHandler(config);
             var transformHandler = new HtmlStreamTransformHandler(innerHandler, s => new PlaceholderResolverStream(s, a => ResolvePlaceholder(resourceManager, a)));
 
-            configuration.HttpConfig.Routes.MapHttpRoute(
+            httpConfig.Routes.MapHttpRoute(
                 name: "swagger_localizedui",
                 routeTemplate: routeTemplate,
                 defaults: null,
@@ -58,12 +62,12 @@
 
             if (routeTemplate == DefaultRouteTemplate)
             {
-                configuration.HttpConfig.Routes.MapHttpRoute(
+                httpConfig.Routes.MapHttpRoute(
                     name: "swagger_localizedui_shortcut",
                     routeTemplate: "swagger",
                     defaults: null,
                     constraints: new { uriResolution = new HttpRouteDirectionConstraint(HttpRouteDirection.UriResolution) },
-                    handler: new RedirectHandler(configuration.RootUrlResolver, "swagger/ui/index"));
+                    handler: new RedirectHandler(rootUrlResolver, "swagger/ui/index"));
             }
         }
 
