@@ -1,6 +1,6 @@
 # Swashbuckle.DynamicLocalization
 
-## Overview - What It's Supposed To Do
+## Overview
 
 This package exposes two distinct pieces of functionality, extending on Swashbuckle:
  * Swashbuckle filters that grab descriptions from resource strings, using the CurrentUICulture.
