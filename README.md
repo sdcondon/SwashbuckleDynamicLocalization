@@ -50,13 +50,3 @@ Instead of EnableSwaggerUi, you can invoke the EnableLocalizedSwaggerUI extensio
 
  * A placeholder of %(TranslationScripts) in your index file will be resolved to script tags for the appropriate Swagger UI language scripts given the CurrentUICulture (as long as it is one for which Swagger UI language scripts exist - if not, no script tags will be added). Note that this package _does not_ provide an index file with this placeholder already in place. That's a TODO.
  * If you provide a ResourceManager argument to EnableLocalizedSwaggerUi, a lookup (again using the CurrentUICulture) will be performed for any other placeholders (%(...)) in your index file in case there's anything else you want to localise.
-
-## Features and Roadmap
-
-- [x] Basic implementation.
-- [ ] Submit a very polite pull request for Swashbuckle so that it can work without the reflection-using-hack.
-- [ ] Add logic for response descriptions to ResourceOperationFilter.
-- [ ] Documentation Filter (and might need some more SwaggerDocsConfig extensions) for localising other swagger doc entries - the title, for example.
-- [ ] For the resource lookups in the operation and schema filters, only require as much of the namespace as is necessary to be unique.
-- [ ] When EnableLocalizedSwaggerUi is invoked, register an index HTML file that's got the %(TranslationScripts) placeholder in - ensuring of course that it can be overridden.
-- [ ] Tidy up UsageExample - it's got a bunch of packages it doesn't need.
